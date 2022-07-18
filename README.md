@@ -1,4 +1,4 @@
-# The practice part of the webinar about the linkage
+# The practice part of the webinar about linkage
 
 ## Build
 
