@@ -2,9 +2,10 @@
 
 #include <iostream>
 
-int main() {
+int main()
+{
 
-	std::cout << "make_some_calculcation = " << make_some_calculcation(1, 2) << std::endl;
+	std::cout << "make_some_calculation = " << make_some_calculation(1, 2) << std::endl;
 
 	return 0;
 }

@@ -2,17 +2,19 @@
 #include <iostream>
 #include <string>
 
-bool write_to_file_example(std::ofstream& file) {
+bool write_to_file_example(std::ofstream &file)
+{
 
 	std::cout << "write_to_file_example:" << std::endl;
-	
-	if (!file.is_open()) {
+
+	if (!file.is_open())
+	{
 		std::cout << "Error! File was not opened!" << std::endl;
 		return false;
-	} 
+	}
 
-	file << 42; // decimal constant example
-	file << 3.1415f; // float constant example
+	file << 42;				// decimal constant example
+	file << 3.1415f;	// float constant example
 	file << "hello!"; // string constant example
 
 	int someVariable = 56;
@@ -24,10 +26,12 @@ bool write_to_file_example(std::ofstream& file) {
 	return true;
 }
 
-bool read_from_file(std::ifstream& file) {
+bool read_from_file(std::ifstream &file)
+{
 	std::cout << "read_from_file:" << std::endl;
-	
-	if (!file.is_open()) {
+
+	if (!file.is_open())
+	{
 		std::cout << "Error! File was not opened!" << std::endl;
 		return false;
 	}
@@ -40,9 +44,9 @@ bool read_from_file(std::ifstream& file) {
 	// Source file content:
 	// 423.1415hello!56
 
-	file >> f_value; // 423.1415
+	file >> f_value;	 // 423.1415
 	file >> str_value; // hello!56
-	file >> i_value; // 0
+	file >> i_value;	 // 0
 
 	std::cout << "f_value = " << f_value << std::endl;
 	std::cout << "str_value = " << str_value << std::endl;
@@ -51,10 +55,12 @@ bool read_from_file(std::ifstream& file) {
 	return true;
 }
 
-bool read_write_file_example(std::fstream& file) {
+bool read_write_file_example(std::fstream &file)
+{
 	std::cout << "read_write_file_example:" << std::endl;
-	
-	if (!file.is_open()) {
+
+	if (!file.is_open())
+	{
 		std::cout << "Error! File was not opened!" << std::endl;
 		return false;
 	}
@@ -91,17 +97,20 @@ bool read_write_file_example(std::fstream& file) {
 	return true;
 }
 
-int main() {
+int main()
+{
 
 	const std::string filename = "testFile.txt";
 
-	std::ofstream o_file{ filename };
+	std::ofstream o_file{filename};
 	bool success = write_to_file_example(o_file);
 
-	if (success) {
-		std::cout << "Write to file succeeded!" << std::endl; 
+	if (success)
+	{
+		std::cout << "Write to file succeeded!" << std::endl;
 	}
-	else {
+	else
+	{
 		std::cout << "Write to file failed!" << std::endl;
 		return -1;
 	}
@@ -111,14 +120,15 @@ int main() {
 	std::ifstream i_file{filename};
 	success = read_from_file(i_file);
 
-		if (success) {
-		std::cout << "Read from file succeeded!" << std::endl; 
+	if (success)
+	{
+		std::cout << "Read from file succeeded!" << std::endl;
 	}
-	else {
+	else
+	{
 		std::cout << "Read from file failed!" << std::endl;
 		return -1;
 	}
-
 
 	const std::string filename2 = "testFile2.txt";
 	std::fstream io_file{filename2, std::ios_base::in | std::ios_base::out | std::fstream::app};

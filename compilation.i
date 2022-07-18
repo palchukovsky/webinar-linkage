@@ -1,7 +1,4 @@
 #line 1 "C:\\Go\\webinar-linkage\\compilation.cpp"
-#line 1 "C:\\Go\\webinar-linkage\\compilation.h"
-
-#pragma once
 
 #pragma external_header(push)
 #line 1 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.31.31103\\include\\iostream"
@@ -66061,44 +66058,23 @@ private:
 #line 72 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.31.31103\\include\\iostream"
 #line 73 "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.31.31103\\include\\iostream"
 #pragma external_header(pop)
-#line 5 "C:\\Go\\webinar-linkage\\compilation.h"
+#line 3 "C:\\Go\\webinar-linkage\\compilation.cpp"
 
-
-
-void some_function(int);
-
-
-
-void some_other_function(float);
-#line 2 "C:\\Go\\webinar-linkage\\compilation.cpp"
-
-
-
-
-
-
-
-
-
-void some_function(int) {
-
+void some_function(int)
+{
 }
 
-void some_other_function(float) {
-
+void some_other_function(float)
+{
 }
 
-int main() {
-	42;
-
+int main()
+{
 	some_function(42);
 
 	some_other_function(34.f);
 
-	int max = ((42<45)?45:42);
-	
-
-	
+	std::cout << "Hey!" << std::endl;
 
 	return 0;
 }

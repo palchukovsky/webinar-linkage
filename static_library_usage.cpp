@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-int main() {
+int main()
+{
 	std::cout << "getCurrentDateTime = " << getCurrentDateTime() << std::endl;
 
 	return 0;

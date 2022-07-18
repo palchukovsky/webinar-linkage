@@ -6,20 +6,20 @@ INCLUDELIB MSVCRTD
 INCLUDELIB OLDNAMES
 
 CONST	SEGMENT
-$SG47824 DB	'invalid argument', 00H
+$SG47818 DB	'invalid argument', 00H
 	ORG $+3
-$SG47825 DB	'%s', 00H
+$SG47819 DB	'%s', 00H
 	ORG $+1
-$SG47829 DB	'"', 00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H
+$SG47823 DB	'"', 00H, 'i', 00H, 'n', 00H, 'v', 00H, 'a', 00H, 'l', 00H
 	DB	'i', 00H, 'd', 00H, ' ', 00H, 'a', 00H, 'r', 00H, 'g', 00H, 'u'
 	DB	00H, 'm', 00H, 'e', 00H, 'n', 00H, 't', 00H, '"', 00H, 00H, 00H
 	ORG $+2
-$SG47826 DB	'C:\Program Files\Microsoft Visual Studio\2022\Profession'
+$SG47820 DB	'C:\Program Files\Microsoft Visual Studio\2022\Profession'
 	DB	'al\VC\Tools\MSVC\14.31.31103\include\xmemory', 00H
 	ORG $+3
-$SG47828 DB	00H, 00H
+$SG47822 DB	00H, 00H
 	ORG $+6
-$SG47827 DB	'C', 00H, ':', 00H, '\', 00H, 'P', 00H, 'r', 00H, 'o', 00H
+$SG47821 DB	'C', 00H, ':', 00H, '\', 00H, 'P', 00H, 'r', 00H, 'o', 00H
 	DB	'g', 00H, 'r', 00H, 'a', 00H, 'm', 00H, ' ', 00H, 'F', 00H, 'i'
 	DB	00H, 'l', 00H, 'e', 00H, 's', 00H, '\', 00H, 'M', 00H, 'i', 00H
 	DB	'c', 00H, 'r', 00H, 'o', 00H, 's', 00H, 'o', 00H, 'f', 00H, 't'
@@ -36,7 +36,7 @@ $SG47827 DB	'C', 00H, ':', 00H, '\', 00H, 'P', 00H, 'r', 00H, 'o', 00H
 	DB	00H, 'e', 00H, '\', 00H, 'x', 00H, 'm', 00H, 'e', 00H, 'm', 00H
 	DB	'o', 00H, 'r', 00H, 'y', 00H, 00H, 00H
 	ORG $+6
-$SG47865 DB	'C:\Program Files\Microsoft Visual Studio\2022\Profession'
+$SG47859 DB	'C:\Program Files\Microsoft Visual Studio\2022\Profession'
 	DB	'al\VC\Tools\MSVC\14.31.31103\include\xlocale', 00H
 CONST	ENDS
 PUBLIC	?__empty_global_delete@@YAXPEAX@Z		; __empty_global_delete
@@ -82,7 +82,7 @@ $pdata$?some_other_function@@YAXM@Z DD imagerel $LN3
 	DD	imagerel $LN3+9
 	DD	imagerel $unwind$?some_other_function@@YAXM@Z
 $pdata$main DD	imagerel $LN3
-	DD	imagerel $LN3+45
+	DD	imagerel $LN3+37
 	DD	imagerel $unwind$main
 pdata	ENDS
 ;	COMDAT __real@42080000
@@ -103,7 +103,7 @@ $unwind$?some_function@@YAXH@Z DD 010501H
 $unwind$?some_other_function@@YAXM@Z DD 010701H
 	DD	07007H
 $unwind$main DD	020601H
-	DD	070025206H
+	DD	070023206H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -127,25 +127,22 @@ $unwind$?__empty_global_delete@@YAXPEAX@Z DD 010601H
 xdata	ENDS
 ; Function compile flags: /Odtp /RTCsu
 _TEXT	SEGMENT
-max$ = 32
 main	PROC
 ; File C:\Go\webinar-linkage\compilation.cpp
-; Line 19
+; Line 13
 $LN3:
 	push	rdi
-	sub	rsp, 48					; 00000030H
-; Line 22
+	sub	rsp, 32					; 00000020H
+; Line 14
 	mov	ecx, 42					; 0000002aH
 	call	?some_function@@YAXH@Z			; some_function
-; Line 24
+; Line 16
 	movss	xmm0, DWORD PTR __real@42080000
 	call	?some_other_function@@YAXM@Z		; some_other_function
-; Line 26
-	mov	DWORD PTR max$[rsp], 45			; 0000002dH
-; Line 31
+; Line 18
 	xor	eax, eax
-; Line 32
-	add	rsp, 48					; 00000030H
+; Line 19
+	add	rsp, 32					; 00000020H
 	pop	rdi
 	ret	0
 main	ENDP
@@ -155,11 +152,11 @@ _TEXT	SEGMENT
 __formal$ = 16
 ?some_other_function@@YAXM@Z PROC			; some_other_function
 ; File C:\Go\webinar-linkage\compilation.cpp
-; Line 15
+; Line 9
 $LN3:
 	movss	DWORD PTR [rsp+8], xmm0
 	push	rdi
-; Line 17
+; Line 10
 	pop	rdi
 	ret	0
 ?some_other_function@@YAXM@Z ENDP			; some_other_function
@@ -169,11 +166,11 @@ _TEXT	SEGMENT
 __formal$ = 16
 ?some_function@@YAXH@Z PROC				; some_function
 ; File C:\Go\webinar-linkage\compilation.cpp
-; Line 11
+; Line 5
 $LN3:
 	mov	DWORD PTR [rsp+8], ecx
 	push	rdi
-; Line 13
+; Line 6
 	pop	rdi
 	ret	0
 ?some_function@@YAXH@Z ENDP				; some_function
@@ -186,7 +183,7 @@ __formal$ = 24
 __formal$ = 32
 ?__empty_global_delete@@YAXPEAX_KW4align_val_t@std@@@Z PROC ; __empty_global_delete, COMDAT
 ; File C:\Go\webinar-linkage\compilation.cpp
-; Line 33
+; Line 20
 $LN3:
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -203,7 +200,7 @@ __formal$ = 16
 __formal$ = 24
 ?__empty_global_delete@@YAXPEAXW4align_val_t@std@@@Z PROC ; __empty_global_delete, COMDAT
 ; File C:\Go\webinar-linkage\compilation.cpp
-; Line 33
+; Line 20
 $LN3:
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -219,7 +216,7 @@ __formal$ = 16
 __formal$ = 24
 ?__empty_global_delete@@YAXPEAX_K@Z PROC		; __empty_global_delete, COMDAT
 ; File C:\Go\webinar-linkage\compilation.cpp
-; Line 33
+; Line 20
 $LN3:
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -234,7 +231,7 @@ _TEXT	SEGMENT
 __formal$ = 16
 ?__empty_global_delete@@YAXPEAX@Z PROC			; __empty_global_delete, COMDAT
 ; File C:\Go\webinar-linkage\compilation.cpp
-; Line 33
+; Line 20
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rdi
